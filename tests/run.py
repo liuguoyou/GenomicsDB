@@ -97,12 +97,15 @@ def cleanup_and_exit(tmpdir, exit_code):
     sys.exit(exit_code);
 
 def main():
+    #lcov gcda directory prefix
+    gcda_prefix_dir = '../';
+    if(len(sys.argv) >= 2):
+        gcda_prefix_dir = sys.argv[1];
     #Switch to tests directory
     parent_dir=os.path.dirname(os.path.realpath(__file__))
     os.chdir(parent_dir)
     #Zero line coverage
-    subprocess.call('lcov --directory ../ --zerocounters', shell=True);
-    exe_path = '../bin/'
+    subprocess.call('lcov --directory '+gcda_prefix_dir+' --zerocounters', shell=True);
     tmpdir = tempfile.mkdtemp()
     ws_dir=tmpdir+os.path.sep+'ws';
     #Buffer size
@@ -171,7 +174,7 @@ def main():
         with open(loader_json_filename, 'wb') as fptr:
             json.dump(test_loader_dict, fptr, indent=4, separators=(',', ': '));
             fptr.close();
-        pid = subprocess.Popen(exe_path+os.path.sep+'vcf2tiledb '+loader_json_filename, shell=True,
+        pid = subprocess.Popen('vcf2tiledb '+loader_json_filename, shell=True,
                 stdout=subprocess.PIPE);
         stdout_string = pid.communicate()[0]
         if(pid.returncode != 0):
@@ -194,7 +197,7 @@ def main():
                     with open(query_json_filename, 'wb') as fptr:
                         json.dump(test_query_dict, fptr, indent=4, separators=(',', ': '));
                         fptr.close();
-                    pid = subprocess.Popen((exe_path+os.path.sep+'gt_mpi_gather -s %d -l '+loader_json_filename+' -j '
+                    pid = subprocess.Popen(('gt_mpi_gather -s %d -l '+loader_json_filename+' -j '
                             +query_json_filename+' '+cmd_line_param)%(segment_size), shell=True,
                             stdout=subprocess.PIPE);
                     stdout_string = pid.communicate()[0]
@@ -210,7 +213,7 @@ def main():
                             cleanup_and_exit(tmpdir, -1);
                     idx += 1
     coverage_file='coverage.info'
-    subprocess.call('lcov --directory ../ --capture --output-file '+coverage_file, shell=True);
+    subprocess.call('lcov --directory '+gcda_prefix_dir+' --capture --output-file '+coverage_file, shell=True);
     subprocess.call("lcov --remove "+coverage_file+" '/opt*' '/usr*' 'dependencies*' -o "+coverage_file, shell=True);
     cleanup_and_exit(tmpdir, 0); 
 
