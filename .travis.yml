@@ -25,7 +25,7 @@ install:
     # install lcov to coveralls conversion + upload tool
     - gem install coveralls-lcov
     - mkdir -p $GENOMICSDB_BUILD_DIR
-    - cd $GENOMICSDB_BUILD_DIR && cmake $TRAVIS_BUILD_DIR -DBUILD_JAVA=1 -DCMAKE_BUILD_TYPE=Coverage -DCMAKE_INSTALL_PREFIX=install -DLIBCSV_DIR=$TRAVIS_BUILD_DIR/dependencies/libcsv
+    - cd $GENOMICSDB_BUILD_DIR && cmake $TRAVIS_BUILD_DIR -DBUILD_JAVA=1 -DCMAKE_BUILD_TYPE=Coverage -DCMAKE_INSTALL_PREFIX=$GENOMICSDB_INSTALL_DIR -DLIBCSV_DIR=$TRAVIS_BUILD_DIR/dependencies/libcsv
 
 before_script:
     - cd $GENOMICSDB_BUILD_DIR && lcov --directory . --zerocounters
