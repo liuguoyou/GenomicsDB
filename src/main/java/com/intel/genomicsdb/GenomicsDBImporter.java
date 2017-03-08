@@ -288,7 +288,7 @@ public class GenomicsDBImporter
     jniCopyCallsetMap(mGenomicsDBImporterObjectHandle, mCallsetMap.toByteArray());
 
     for (Map.Entry<String, GenomicsDBCallsetsMapProto.SampleIDToTileDBIDMap> callset :
-      mCallsetMap.getCallsetMapMap().entrySet()) {
+      mCallsetMap.getCallsetMap().entrySet()) {
       GenomicsDBCallsetsMapProto.SampleIDToTileDBIDMap sampleIDToTileDBIDMap =
         callset.getValue();
         FeatureReader<VariantContext> featureReader =
@@ -388,7 +388,9 @@ public class GenomicsDBImporter
       GenomicsDBCallsetsMapProto.CallsetMappingPB.newBuilder();
 
     int tileDBRowIndex = 0;
-    
+
+    Map<String, GenomicsDBCallsetsMapProto.SampleIDToTileDBIDMap> sampleMap =
+      new HashMap<>();
     for (String sampleName : sampleNames) {
       GenomicsDBCallsetsMapProto.SampleIDToTileDBIDMap.Builder idMapBuilder =
         GenomicsDBCallsetsMapProto.SampleIDToTileDBIDMap.newBuilder();
@@ -402,9 +404,11 @@ public class GenomicsDBImporter
       GenomicsDBCallsetsMapProto.SampleIDToTileDBIDMap sampleIDToTileDBIDMap =
         idMapBuilder.build();
 
-      callsetMapBuilder.putCallsetMap(sampleName, sampleIDToTileDBIDMap);
+
+      sampleMap.put(sampleName, sampleIDToTileDBIDMap);
+
     }
-    return callsetMapBuilder.build();
+    return callsetMapBuilder.putAllCallsetMap(sampleMap).build();
   }
 
 

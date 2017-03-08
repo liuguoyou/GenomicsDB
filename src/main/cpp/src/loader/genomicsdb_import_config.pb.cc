@@ -7,7 +7,6 @@
 #include <algorithm>
 
 #include <google/protobuf/stubs/common.h>
-#include <google/protobuf/stubs/port.h>
 #include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
@@ -29,7 +28,6 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 }  // namespace
 
 
-void protobuf_AssignDesc_genomicsdb_5fimport_5fconfig_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AssignDesc_genomicsdb_5fimport_5fconfig_2eproto() {
   protobuf_AddDesc_genomicsdb_5fimport_5fconfig_2eproto();
   const ::google::protobuf::FileDescriptor* file =
@@ -95,7 +93,6 @@ inline void protobuf_AssignDescriptorsOnce() {
                  &protobuf_AssignDesc_genomicsdb_5fimport_5fconfig_2eproto);
 }
 
-void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -113,7 +110,6 @@ void protobuf_ShutdownFile_genomicsdb_5fimport_5fconfig_2eproto() {
   delete ImportConfiguration_reflection_;
 }
 
-void protobuf_AddDesc_genomicsdb_5fimport_5fconfig_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AddDesc_genomicsdb_5fimport_5fconfig_2eproto() {
   static bool already_here = false;
   if (already_here) return;
@@ -158,15 +154,25 @@ struct StaticDescriptorInitializer_genomicsdb_5fimport_5fconfig_2eproto {
   }
 } static_descriptor_initializer_genomicsdb_5fimport_5fconfig_2eproto_;
 
+namespace {
+
+static void MergeFromFail(int line) GOOGLE_ATTRIBUTE_COLD;
+static void MergeFromFail(int line) {
+  GOOGLE_CHECK(false) << __FILE__ << ":" << line;
+}
+
+}  // namespace
+
+
 // ===================================================================
 
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
+#ifndef _MSC_VER
 const int Partition::kBeginFieldNumber;
 const int Partition::kWorkspaceFieldNumber;
 const int Partition::kArrayFieldNumber;
 const int Partition::kVcfOutputFilenameFieldNumber;
 const int Partition::kEndFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+#endif  // !_MSC_VER
 
 Partition::Partition()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
@@ -235,7 +241,6 @@ Partition* Partition::New(::google::protobuf::Arena* arena) const {
 }
 
 void Partition::Clear() {
-// @@protoc_insertion_point(message_clear_start:Partition)
   if (_has_bits_[0 / 32] & 31u) {
     begin_ = GOOGLE_LONGLONG(0);
     if (has_workspace()) {
@@ -257,7 +262,7 @@ void Partition::Clear() {
 
 bool Partition::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:Partition)
   for (;;) {
@@ -417,9 +422,8 @@ void Partition::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:Partition)
 }
 
-::google::protobuf::uint8* Partition::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+::google::protobuf::uint8* Partition::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:Partition)
   // required int64 begin = 1;
   if (has_begin()) {
@@ -473,7 +477,6 @@ void Partition::SerializeWithCachedSizes(
 }
 
 int Partition::ByteSize() const {
-// @@protoc_insertion_point(message_byte_size_start:Partition)
   int total_size = 0;
 
   // required int64 begin = 1;
@@ -524,27 +527,19 @@ int Partition::ByteSize() const {
 }
 
 void Partition::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:Partition)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const Partition* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const Partition>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Partition)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:Partition)
     MergeFrom(*source);
   }
 }
 
 void Partition::MergeFrom(const Partition& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Partition)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_begin()) {
       set_begin(from.begin());
@@ -571,14 +566,12 @@ void Partition::MergeFrom(const Partition& from) {
 }
 
 void Partition::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:Partition)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void Partition::CopyFrom(const Partition& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Partition)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -680,7 +673,6 @@ void Partition::clear_workspace() {
   return workspace_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Partition::release_workspace() {
-  // @@protoc_insertion_point(field_release:Partition.workspace)
   clear_has_workspace();
   return workspace_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -734,7 +726,6 @@ void Partition::clear_array() {
   return array_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Partition::release_array() {
-  // @@protoc_insertion_point(field_release:Partition.array)
   clear_has_array();
   return array_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -788,7 +779,6 @@ void Partition::clear_vcf_output_filename() {
   return vcf_output_filename_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Partition::release_vcf_output_filename() {
-  // @@protoc_insertion_point(field_release:Partition.vcf_output_filename)
   clear_has_vcf_output_filename();
   return vcf_output_filename_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -830,7 +820,7 @@ void Partition::clear_end() {
 
 // ===================================================================
 
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
+#ifndef _MSC_VER
 const int ImportConfiguration::kSizePerColumnPartitionFieldNumber;
 const int ImportConfiguration::kRowBasedPartitioningFieldNumber;
 const int ImportConfiguration::kProduceCombinedVcfFieldNumber;
@@ -847,7 +837,7 @@ const int ImportConfiguration::kDiscardVcfIndexFieldNumber;
 const int ImportConfiguration::kSegmentSizeFieldNumber;
 const int ImportConfiguration::kCompressTiledbArrayFieldNumber;
 const int ImportConfiguration::kNumCellsPerTileFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+#endif  // !_MSC_VER
 
 ImportConfiguration::ImportConfiguration()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
@@ -925,17 +915,8 @@ ImportConfiguration* ImportConfiguration::New(::google::protobuf::Arena* arena) 
 }
 
 void ImportConfiguration::Clear() {
-// @@protoc_insertion_point(message_clear_start:ImportConfiguration)
-#if defined(__clang__)
-#define ZR_HELPER_(f) \
-  _Pragma("clang diagnostic push") \
-  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
-  __builtin_offsetof(ImportConfiguration, f) \
-  _Pragma("clang diagnostic pop")
-#else
 #define ZR_HELPER_(f) reinterpret_cast<char*>(\
   &reinterpret_cast<ImportConfiguration*>(16)->f)
-#endif
 
 #define ZR_(first, last) do {\
   ::memset(&first, 0,\
@@ -977,7 +958,7 @@ void ImportConfiguration::Clear() {
 
 bool ImportConfiguration::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:ImportConfiguration)
   for (;;) {
@@ -1353,9 +1334,8 @@ void ImportConfiguration::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:ImportConfiguration)
 }
 
-::google::protobuf::uint8* ImportConfiguration::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+::google::protobuf::uint8* ImportConfiguration::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:ImportConfiguration)
   // optional bool row_based_partitioning = 1 [default = false];
   if (has_row_based_partitioning()) {
@@ -1375,8 +1355,8 @@ void ImportConfiguration::SerializeWithCachedSizes(
   // repeated .Partition column_partitions = 4;
   for (unsigned int i = 0, n = this->column_partitions_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageNoVirtualToArray(
-        4, this->column_partitions(i), false, target);
+      WriteMessageNoVirtualToArray(
+        4, this->column_partitions(i), target);
   }
 
   // optional string vid_mapping_file = 5;
@@ -1460,7 +1440,6 @@ void ImportConfiguration::SerializeWithCachedSizes(
 }
 
 int ImportConfiguration::ByteSize() const {
-// @@protoc_insertion_point(message_byte_size_start:ImportConfiguration)
   int total_size = 0;
 
   // required int64 size_per_column_partition = 7 [default = 10240];
@@ -1573,27 +1552,19 @@ int ImportConfiguration::ByteSize() const {
 }
 
 void ImportConfiguration::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ImportConfiguration)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const ImportConfiguration* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const ImportConfiguration>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ImportConfiguration)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ImportConfiguration)
     MergeFrom(*source);
   }
 }
 
 void ImportConfiguration::MergeFrom(const ImportConfiguration& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ImportConfiguration)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   column_partitions_.MergeFrom(from.column_partitions_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_size_per_column_partition()) {
@@ -1652,14 +1623,12 @@ void ImportConfiguration::MergeFrom(const ImportConfiguration& from) {
 }
 
 void ImportConfiguration::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ImportConfiguration)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void ImportConfiguration::CopyFrom(const ImportConfiguration& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ImportConfiguration)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1875,7 +1844,6 @@ void ImportConfiguration::clear_vid_mapping_file() {
   return vid_mapping_file_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* ImportConfiguration::release_vid_mapping_file() {
-  // @@protoc_insertion_point(field_release:ImportConfiguration.vid_mapping_file)
   clear_has_vid_mapping_file();
   return vid_mapping_file_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1929,7 +1897,6 @@ void ImportConfiguration::clear_callset_mapping_file() {
   return callset_mapping_file_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* ImportConfiguration::release_callset_mapping_file() {
-  // @@protoc_insertion_point(field_release:ImportConfiguration.callset_mapping_file)
   clear_has_callset_mapping_file();
   return callset_mapping_file_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }

@@ -4,7 +4,7 @@
 ##########
 
 # --- Release Version --- #
-RELEASE_VERSION = 0.4.0
+RELEASE_VERSION = gatk4-0.4.0
 
 # --- Build Flags --- #
 # Large file support

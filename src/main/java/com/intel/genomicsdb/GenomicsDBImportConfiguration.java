@@ -6,13 +6,7 @@ package com.intel.genomicsdb;
 public final class GenomicsDBImportConfiguration {
   private GenomicsDBImportConfiguration() {}
   public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
-
-  public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   public interface PartitionOrBuilder extends
       // @@protoc_insertion_point(interface_extends:Partition)
@@ -82,11 +76,11 @@ public final class GenomicsDBImportConfiguration {
    * Protobuf type {@code Partition}
    */
   public  static final class Partition extends
-      com.google.protobuf.GeneratedMessageV3 implements
+      com.google.protobuf.GeneratedMessage implements
       // @@protoc_insertion_point(message_implements:Partition)
       PartitionOrBuilder {
     // Use Partition.newBuilder() to construct.
-    private Partition(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    private Partition(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
     private Partition() {
@@ -104,8 +98,7 @@ public final class GenomicsDBImportConfiguration {
     }
     private Partition(
         com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
       this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -156,10 +149,11 @@ public final class GenomicsDBImportConfiguration {
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
+        throw new RuntimeException(e.setUnfinishedMessage(this));
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -170,7 +164,7 @@ public final class GenomicsDBImportConfiguration {
       return com.intel.genomicsdb.GenomicsDBImportConfiguration.internal_static_Partition_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.intel.genomicsdb.GenomicsDBImportConfiguration.internal_static_Partition_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
@@ -354,13 +348,13 @@ public final class GenomicsDBImportConfiguration {
         output.writeInt64(1, begin_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, workspace_);
+        com.google.protobuf.GeneratedMessage.writeString(output, 2, workspace_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, array_);
+        com.google.protobuf.GeneratedMessage.writeString(output, 3, array_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, vcfOutputFilename_);
+        com.google.protobuf.GeneratedMessage.writeString(output, 4, vcfOutputFilename_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeInt64(5, end_);
@@ -378,13 +372,13 @@ public final class GenomicsDBImportConfiguration {
           .computeInt64Size(1, begin_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, workspace_);
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(2, workspace_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, array_);
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(3, array_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, vcfOutputFilename_);
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(4, vcfOutputFilename_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
@@ -396,80 +390,6 @@ public final class GenomicsDBImportConfiguration {
     }
 
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.intel.genomicsdb.GenomicsDBImportConfiguration.Partition)) {
-        return super.equals(obj);
-      }
-      com.intel.genomicsdb.GenomicsDBImportConfiguration.Partition other = (com.intel.genomicsdb.GenomicsDBImportConfiguration.Partition) obj;
-
-      boolean result = true;
-      result = result && (hasBegin() == other.hasBegin());
-      if (hasBegin()) {
-        result = result && (getBegin()
-            == other.getBegin());
-      }
-      result = result && (hasWorkspace() == other.hasWorkspace());
-      if (hasWorkspace()) {
-        result = result && getWorkspace()
-            .equals(other.getWorkspace());
-      }
-      result = result && (hasArray() == other.hasArray());
-      if (hasArray()) {
-        result = result && getArray()
-            .equals(other.getArray());
-      }
-      result = result && (hasVcfOutputFilename() == other.hasVcfOutputFilename());
-      if (hasVcfOutputFilename()) {
-        result = result && getVcfOutputFilename()
-            .equals(other.getVcfOutputFilename());
-      }
-      result = result && (hasEnd() == other.hasEnd());
-      if (hasEnd()) {
-        result = result && (getEnd()
-            == other.getEnd());
-      }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
-      if (hasBegin()) {
-        hash = (37 * hash) + BEGIN_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getBegin());
-      }
-      if (hasWorkspace()) {
-        hash = (37 * hash) + WORKSPACE_FIELD_NUMBER;
-        hash = (53 * hash) + getWorkspace().hashCode();
-      }
-      if (hasArray()) {
-        hash = (37 * hash) + ARRAY_FIELD_NUMBER;
-        hash = (53 * hash) + getArray().hashCode();
-      }
-      if (hasVcfOutputFilename()) {
-        hash = (37 * hash) + VCF_OUTPUT_FILENAME_FIELD_NUMBER;
-        hash = (53 * hash) + getVcfOutputFilename().hashCode();
-      }
-      if (hasEnd()) {
-        hash = (37 * hash) + END_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getEnd());
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
     public static com.intel.genomicsdb.GenomicsDBImportConfiguration.Partition parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -493,40 +413,34 @@ public final class GenomicsDBImportConfiguration {
     }
     public static com.intel.genomicsdb.GenomicsDBImportConfiguration.Partition parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return PARSER.parseFrom(input);
     }
     public static com.intel.genomicsdb.GenomicsDBImportConfiguration.Partition parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static com.intel.genomicsdb.GenomicsDBImportConfiguration.Partition parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
+      return PARSER.parseDelimitedFrom(input);
     }
     public static com.intel.genomicsdb.GenomicsDBImportConfiguration.Partition parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static com.intel.genomicsdb.GenomicsDBImportConfiguration.Partition parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return PARSER.parseFrom(input);
     }
     public static com.intel.genomicsdb.GenomicsDBImportConfiguration.Partition parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return PARSER.parseFrom(input, extensionRegistry);
     }
 
     public Builder newBuilderForType() { return newBuilder(); }
@@ -543,7 +457,7 @@ public final class GenomicsDBImportConfiguration {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -551,7 +465,7 @@ public final class GenomicsDBImportConfiguration {
      * Protobuf type {@code Partition}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:Partition)
         com.intel.genomicsdb.GenomicsDBImportConfiguration.PartitionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -559,7 +473,7 @@ public final class GenomicsDBImportConfiguration {
         return com.intel.genomicsdb.GenomicsDBImportConfiguration.internal_static_Partition_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.intel.genomicsdb.GenomicsDBImportConfiguration.internal_static_Partition_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -572,13 +486,12 @@ public final class GenomicsDBImportConfiguration {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
       public Builder clear() {
@@ -642,32 +555,6 @@ public final class GenomicsDBImportConfiguration {
         return result;
       }
 
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.intel.genomicsdb.GenomicsDBImportConfiguration.Partition) {
           return mergeFrom((com.intel.genomicsdb.GenomicsDBImportConfiguration.Partition)other);
@@ -721,7 +608,7 @@ public final class GenomicsDBImportConfiguration {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.intel.genomicsdb.GenomicsDBImportConfiguration.Partition) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
+          throw e;
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -1022,16 +909,6 @@ public final class GenomicsDBImportConfiguration {
         onChanged();
         return this;
       }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
 
       // @@protoc_insertion_point(builder_scope:Partition)
     }
@@ -1052,7 +929,16 @@ public final class GenomicsDBImportConfiguration {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
           return new Partition(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
       }
     };
 
@@ -1248,11 +1134,11 @@ public final class GenomicsDBImportConfiguration {
    * Protobuf type {@code ImportConfiguration}
    */
   public  static final class ImportConfiguration extends
-      com.google.protobuf.GeneratedMessageV3 implements
+      com.google.protobuf.GeneratedMessage implements
       // @@protoc_insertion_point(message_implements:ImportConfiguration)
       ImportConfigurationOrBuilder {
     // Use ImportConfiguration.newBuilder() to construct.
-    private ImportConfiguration(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    private ImportConfiguration(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
     private ImportConfiguration() {
@@ -1281,8 +1167,7 @@ public final class GenomicsDBImportConfiguration {
     }
     private ImportConfiguration(
         com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
       this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -1322,8 +1207,7 @@ public final class GenomicsDBImportConfiguration {
                 columnPartitions_ = new java.util.ArrayList<com.intel.genomicsdb.GenomicsDBImportConfiguration.Partition>();
                 mutable_bitField0_ |= 0x00000010;
               }
-              columnPartitions_.add(
-                  input.readMessage(com.intel.genomicsdb.GenomicsDBImportConfiguration.Partition.PARSER, extensionRegistry));
+              columnPartitions_.add(input.readMessage(com.intel.genomicsdb.GenomicsDBImportConfiguration.Partition.parser(), extensionRegistry));
               break;
             }
             case 42: {
@@ -1391,10 +1275,11 @@ public final class GenomicsDBImportConfiguration {
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
+        throw new RuntimeException(e.setUnfinishedMessage(this));
       } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
       } finally {
         if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
           columnPartitions_ = java.util.Collections.unmodifiableList(columnPartitions_);
@@ -1408,7 +1293,7 @@ public final class GenomicsDBImportConfiguration {
       return com.intel.genomicsdb.GenomicsDBImportConfiguration.internal_static_ImportConfiguration_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.intel.genomicsdb.GenomicsDBImportConfiguration.internal_static_ImportConfiguration_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
@@ -1765,10 +1650,10 @@ public final class GenomicsDBImportConfiguration {
         output.writeMessage(4, columnPartitions_.get(i));
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, vidMappingFile_);
+        com.google.protobuf.GeneratedMessage.writeString(output, 5, vidMappingFile_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, callsetMappingFile_);
+        com.google.protobuf.GeneratedMessage.writeString(output, 6, callsetMappingFile_);
       }
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt64(7, sizePerColumnPartition_);
@@ -1825,10 +1710,10 @@ public final class GenomicsDBImportConfiguration {
           .computeMessageSize(4, columnPartitions_.get(i));
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, vidMappingFile_);
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(5, vidMappingFile_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, callsetMappingFile_);
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(6, callsetMappingFile_);
       }
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -1876,186 +1761,6 @@ public final class GenomicsDBImportConfiguration {
     }
 
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.intel.genomicsdb.GenomicsDBImportConfiguration.ImportConfiguration)) {
-        return super.equals(obj);
-      }
-      com.intel.genomicsdb.GenomicsDBImportConfiguration.ImportConfiguration other = (com.intel.genomicsdb.GenomicsDBImportConfiguration.ImportConfiguration) obj;
-
-      boolean result = true;
-      result = result && (hasSizePerColumnPartition() == other.hasSizePerColumnPartition());
-      if (hasSizePerColumnPartition()) {
-        result = result && (getSizePerColumnPartition()
-            == other.getSizePerColumnPartition());
-      }
-      result = result && (hasRowBasedPartitioning() == other.hasRowBasedPartitioning());
-      if (hasRowBasedPartitioning()) {
-        result = result && (getRowBasedPartitioning()
-            == other.getRowBasedPartitioning());
-      }
-      result = result && (hasProduceCombinedVcf() == other.hasProduceCombinedVcf());
-      if (hasProduceCombinedVcf()) {
-        result = result && (getProduceCombinedVcf()
-            == other.getProduceCombinedVcf());
-      }
-      result = result && (hasProduceTiledbArray() == other.hasProduceTiledbArray());
-      if (hasProduceTiledbArray()) {
-        result = result && (getProduceTiledbArray()
-            == other.getProduceTiledbArray());
-      }
-      result = result && getColumnPartitionsList()
-          .equals(other.getColumnPartitionsList());
-      result = result && (hasVidMappingFile() == other.hasVidMappingFile());
-      if (hasVidMappingFile()) {
-        result = result && getVidMappingFile()
-            .equals(other.getVidMappingFile());
-      }
-      result = result && (hasCallsetMappingFile() == other.hasCallsetMappingFile());
-      if (hasCallsetMappingFile()) {
-        result = result && getCallsetMappingFile()
-            .equals(other.getCallsetMappingFile());
-      }
-      result = result && (hasTreatDeletionsAsIntervals() == other.hasTreatDeletionsAsIntervals());
-      if (hasTreatDeletionsAsIntervals()) {
-        result = result && (getTreatDeletionsAsIntervals()
-            == other.getTreatDeletionsAsIntervals());
-      }
-      result = result && (hasNumParallelVcfFiles() == other.hasNumParallelVcfFiles());
-      if (hasNumParallelVcfFiles()) {
-        result = result && (getNumParallelVcfFiles()
-            == other.getNumParallelVcfFiles());
-      }
-      result = result && (hasDeleteAndCreateTiledbArray() == other.hasDeleteAndCreateTiledbArray());
-      if (hasDeleteAndCreateTiledbArray()) {
-        result = result && (getDeleteAndCreateTiledbArray()
-            == other.getDeleteAndCreateTiledbArray());
-      }
-      result = result && (hasDoPingPongBuffering() == other.hasDoPingPongBuffering());
-      if (hasDoPingPongBuffering()) {
-        result = result && (getDoPingPongBuffering()
-            == other.getDoPingPongBuffering());
-      }
-      result = result && (hasOffloadVcfOutputProcessing() == other.hasOffloadVcfOutputProcessing());
-      if (hasOffloadVcfOutputProcessing()) {
-        result = result && (getOffloadVcfOutputProcessing()
-            == other.getOffloadVcfOutputProcessing());
-      }
-      result = result && (hasDiscardVcfIndex() == other.hasDiscardVcfIndex());
-      if (hasDiscardVcfIndex()) {
-        result = result && (getDiscardVcfIndex()
-            == other.getDiscardVcfIndex());
-      }
-      result = result && (hasSegmentSize() == other.hasSegmentSize());
-      if (hasSegmentSize()) {
-        result = result && (getSegmentSize()
-            == other.getSegmentSize());
-      }
-      result = result && (hasCompressTiledbArray() == other.hasCompressTiledbArray());
-      if (hasCompressTiledbArray()) {
-        result = result && (getCompressTiledbArray()
-            == other.getCompressTiledbArray());
-      }
-      result = result && (hasNumCellsPerTile() == other.hasNumCellsPerTile());
-      if (hasNumCellsPerTile()) {
-        result = result && (getNumCellsPerTile()
-            == other.getNumCellsPerTile());
-      }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
-      if (hasSizePerColumnPartition()) {
-        hash = (37 * hash) + SIZE_PER_COLUMN_PARTITION_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getSizePerColumnPartition());
-      }
-      if (hasRowBasedPartitioning()) {
-        hash = (37 * hash) + ROW_BASED_PARTITIONING_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-            getRowBasedPartitioning());
-      }
-      if (hasProduceCombinedVcf()) {
-        hash = (37 * hash) + PRODUCE_COMBINED_VCF_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-            getProduceCombinedVcf());
-      }
-      if (hasProduceTiledbArray()) {
-        hash = (37 * hash) + PRODUCE_TILEDB_ARRAY_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-            getProduceTiledbArray());
-      }
-      if (getColumnPartitionsCount() > 0) {
-        hash = (37 * hash) + COLUMN_PARTITIONS_FIELD_NUMBER;
-        hash = (53 * hash) + getColumnPartitionsList().hashCode();
-      }
-      if (hasVidMappingFile()) {
-        hash = (37 * hash) + VID_MAPPING_FILE_FIELD_NUMBER;
-        hash = (53 * hash) + getVidMappingFile().hashCode();
-      }
-      if (hasCallsetMappingFile()) {
-        hash = (37 * hash) + CALLSET_MAPPING_FILE_FIELD_NUMBER;
-        hash = (53 * hash) + getCallsetMappingFile().hashCode();
-      }
-      if (hasTreatDeletionsAsIntervals()) {
-        hash = (37 * hash) + TREAT_DELETIONS_AS_INTERVALS_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-            getTreatDeletionsAsIntervals());
-      }
-      if (hasNumParallelVcfFiles()) {
-        hash = (37 * hash) + NUM_PARALLEL_VCF_FILES_FIELD_NUMBER;
-        hash = (53 * hash) + getNumParallelVcfFiles();
-      }
-      if (hasDeleteAndCreateTiledbArray()) {
-        hash = (37 * hash) + DELETE_AND_CREATE_TILEDB_ARRAY_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-            getDeleteAndCreateTiledbArray());
-      }
-      if (hasDoPingPongBuffering()) {
-        hash = (37 * hash) + DO_PING_PONG_BUFFERING_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-            getDoPingPongBuffering());
-      }
-      if (hasOffloadVcfOutputProcessing()) {
-        hash = (37 * hash) + OFFLOAD_VCF_OUTPUT_PROCESSING_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-            getOffloadVcfOutputProcessing());
-      }
-      if (hasDiscardVcfIndex()) {
-        hash = (37 * hash) + DISCARD_VCF_INDEX_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-            getDiscardVcfIndex());
-      }
-      if (hasSegmentSize()) {
-        hash = (37 * hash) + SEGMENT_SIZE_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getSegmentSize());
-      }
-      if (hasCompressTiledbArray()) {
-        hash = (37 * hash) + COMPRESS_TILEDB_ARRAY_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-            getCompressTiledbArray());
-      }
-      if (hasNumCellsPerTile()) {
-        hash = (37 * hash) + NUM_CELLS_PER_TILE_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getNumCellsPerTile());
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
     public static com.intel.genomicsdb.GenomicsDBImportConfiguration.ImportConfiguration parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2079,40 +1784,34 @@ public final class GenomicsDBImportConfiguration {
     }
     public static com.intel.genomicsdb.GenomicsDBImportConfiguration.ImportConfiguration parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return PARSER.parseFrom(input);
     }
     public static com.intel.genomicsdb.GenomicsDBImportConfiguration.ImportConfiguration parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static com.intel.genomicsdb.GenomicsDBImportConfiguration.ImportConfiguration parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
+      return PARSER.parseDelimitedFrom(input);
     }
     public static com.intel.genomicsdb.GenomicsDBImportConfiguration.ImportConfiguration parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static com.intel.genomicsdb.GenomicsDBImportConfiguration.ImportConfiguration parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return PARSER.parseFrom(input);
     }
     public static com.intel.genomicsdb.GenomicsDBImportConfiguration.ImportConfiguration parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return PARSER.parseFrom(input, extensionRegistry);
     }
 
     public Builder newBuilderForType() { return newBuilder(); }
@@ -2129,7 +1828,7 @@ public final class GenomicsDBImportConfiguration {
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -2137,7 +1836,7 @@ public final class GenomicsDBImportConfiguration {
      * Protobuf type {@code ImportConfiguration}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:ImportConfiguration)
         com.intel.genomicsdb.GenomicsDBImportConfiguration.ImportConfigurationOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -2145,7 +1844,7 @@ public final class GenomicsDBImportConfiguration {
         return com.intel.genomicsdb.GenomicsDBImportConfiguration.internal_static_ImportConfiguration_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.intel.genomicsdb.GenomicsDBImportConfiguration.internal_static_ImportConfiguration_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -2158,13 +1857,12 @@ public final class GenomicsDBImportConfiguration {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getColumnPartitionsFieldBuilder();
         }
       }
@@ -2304,32 +2002,6 @@ public final class GenomicsDBImportConfiguration {
         return result;
       }
 
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.intel.genomicsdb.GenomicsDBImportConfiguration.ImportConfiguration) {
           return mergeFrom((com.intel.genomicsdb.GenomicsDBImportConfiguration.ImportConfiguration)other);
@@ -2372,7 +2044,7 @@ public final class GenomicsDBImportConfiguration {
               columnPartitions_ = other.columnPartitions_;
               bitField0_ = (bitField0_ & ~0x00000010);
               columnPartitionsBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getColumnPartitionsFieldBuilder() : null;
             } else {
               columnPartitionsBuilder_.addAllMessages(other.columnPartitions_);
@@ -2442,7 +2114,7 @@ public final class GenomicsDBImportConfiguration {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.intel.genomicsdb.GenomicsDBImportConfiguration.ImportConfiguration) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
+          throw e;
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -2589,7 +2261,7 @@ public final class GenomicsDBImportConfiguration {
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilderV3<
+      private com.google.protobuf.RepeatedFieldBuilder<
           com.intel.genomicsdb.GenomicsDBImportConfiguration.Partition, com.intel.genomicsdb.GenomicsDBImportConfiguration.Partition.Builder, com.intel.genomicsdb.GenomicsDBImportConfiguration.PartitionOrBuilder> columnPartitionsBuilder_;
 
       /**
@@ -2805,11 +2477,11 @@ public final class GenomicsDBImportConfiguration {
            getColumnPartitionsBuilderList() {
         return getColumnPartitionsFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
+      private com.google.protobuf.RepeatedFieldBuilder<
           com.intel.genomicsdb.GenomicsDBImportConfiguration.Partition, com.intel.genomicsdb.GenomicsDBImportConfiguration.Partition.Builder, com.intel.genomicsdb.GenomicsDBImportConfiguration.PartitionOrBuilder> 
           getColumnPartitionsFieldBuilder() {
         if (columnPartitionsBuilder_ == null) {
-          columnPartitionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+          columnPartitionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               com.intel.genomicsdb.GenomicsDBImportConfiguration.Partition, com.intel.genomicsdb.GenomicsDBImportConfiguration.Partition.Builder, com.intel.genomicsdb.GenomicsDBImportConfiguration.PartitionOrBuilder>(
                   columnPartitions_,
                   ((bitField0_ & 0x00000010) == 0x00000010),
@@ -3259,16 +2931,6 @@ public final class GenomicsDBImportConfiguration {
         onChanged();
         return this;
       }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
 
       // @@protoc_insertion_point(builder_scope:ImportConfiguration)
     }
@@ -3289,7 +2951,16 @@ public final class GenomicsDBImportConfiguration {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
           return new ImportConfiguration(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
       }
     };
 
@@ -3308,22 +2979,22 @@ public final class GenomicsDBImportConfiguration {
 
   }
 
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_Partition_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_Partition_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_ImportConfiguration_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_ImportConfiguration_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
   }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
+  private static com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
     java.lang.String[] descriptorData = {
@@ -3364,13 +3035,13 @@ public final class GenomicsDBImportConfiguration {
     internal_static_Partition_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_Partition_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_Partition_descriptor,
         new java.lang.String[] { "Begin", "Workspace", "Array", "VcfOutputFilename", "End", });
     internal_static_ImportConfiguration_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_ImportConfiguration_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_ImportConfiguration_descriptor,
         new java.lang.String[] { "SizePerColumnPartition", "RowBasedPartitioning", "ProduceCombinedVcf", "ProduceTiledbArray", "ColumnPartitions", "VidMappingFile", "CallsetMappingFile", "TreatDeletionsAsIntervals", "NumParallelVcfFiles", "DeleteAndCreateTiledbArray", "DoPingPongBuffering", "OffloadVcfOutputProcessing", "DiscardVcfIndex", "SegmentSize", "CompressTiledbArray", "NumCellsPerTile", });
   }

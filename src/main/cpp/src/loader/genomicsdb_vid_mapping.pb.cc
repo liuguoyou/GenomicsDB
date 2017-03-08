@@ -7,7 +7,6 @@
 #include <algorithm>
 
 #include <google/protobuf/stubs/common.h>
-#include <google/protobuf/stubs/port.h>
 #include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
@@ -32,7 +31,6 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 }  // namespace
 
 
-void protobuf_AssignDesc_genomicsdb_5fvid_5fmapping_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AssignDesc_genomicsdb_5fvid_5fmapping_2eproto() {
   protobuf_AddDesc_genomicsdb_5fvid_5fmapping_2eproto();
   const ::google::protobuf::FileDescriptor* file =
@@ -100,7 +98,6 @@ inline void protobuf_AssignDescriptorsOnce() {
                  &protobuf_AssignDesc_genomicsdb_5fvid_5fmapping_2eproto);
 }
 
-void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -122,7 +119,6 @@ void protobuf_ShutdownFile_genomicsdb_5fvid_5fmapping_2eproto() {
   delete VidMappingPB_reflection_;
 }
 
-void protobuf_AddDesc_genomicsdb_5fvid_5fmapping_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AddDesc_genomicsdb_5fvid_5fmapping_2eproto() {
   static bool already_here = false;
   if (already_here) return;
@@ -156,14 +152,24 @@ struct StaticDescriptorInitializer_genomicsdb_5fvid_5fmapping_2eproto {
   }
 } static_descriptor_initializer_genomicsdb_5fvid_5fmapping_2eproto_;
 
+namespace {
+
+static void MergeFromFail(int line) GOOGLE_ATTRIBUTE_COLD;
+static void MergeFromFail(int line) {
+  GOOGLE_CHECK(false) << __FILE__ << ":" << line;
+}
+
+}  // namespace
+
+
 // ===================================================================
 
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
+#ifndef _MSC_VER
 const int InfoField::kNameFieldNumber;
 const int InfoField::kTypeFieldNumber;
 const int InfoField::kVcfFieldClassFieldNumber;
 const int InfoField::kLengthFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+#endif  // !_MSC_VER
 
 InfoField::InfoField()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
@@ -230,7 +236,6 @@ InfoField* InfoField::New(::google::protobuf::Arena* arena) const {
 }
 
 void InfoField::Clear() {
-// @@protoc_insertion_point(message_clear_start:InfoField)
   if (_has_bits_[0 / 32] & 11u) {
     if (has_name()) {
       name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -251,7 +256,7 @@ void InfoField::Clear() {
 
 bool InfoField::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:InfoField)
   for (;;) {
@@ -400,9 +405,8 @@ void InfoField::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:InfoField)
 }
 
-::google::protobuf::uint8* InfoField::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+::google::protobuf::uint8* InfoField::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:InfoField)
   // required string name = 1;
   if (has_name()) {
@@ -456,7 +460,6 @@ void InfoField::SerializeWithCachedSizes(
 }
 
 int InfoField::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:InfoField)
   int total_size = 0;
 
   if (has_name()) {
@@ -476,7 +479,6 @@ int InfoField::RequiredFieldsByteSizeFallback() const {
   return total_size;
 }
 int InfoField::ByteSize() const {
-// @@protoc_insertion_point(message_byte_size_start:InfoField)
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
@@ -519,27 +521,19 @@ int InfoField::ByteSize() const {
 }
 
 void InfoField::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:InfoField)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const InfoField* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const InfoField>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:InfoField)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:InfoField)
     MergeFrom(*source);
   }
 }
 
 void InfoField::MergeFrom(const InfoField& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:InfoField)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   vcf_field_class_.MergeFrom(from.vcf_field_class_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_name()) {
@@ -561,14 +555,12 @@ void InfoField::MergeFrom(const InfoField& from) {
 }
 
 void InfoField::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:InfoField)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void InfoField::CopyFrom(const InfoField& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:InfoField)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -645,7 +637,6 @@ void InfoField::clear_name() {
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* InfoField::release_name() {
-  // @@protoc_insertion_point(field_release:InfoField.name)
   clear_has_name();
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -699,7 +690,6 @@ void InfoField::clear_type() {
   return type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* InfoField::release_type() {
-  // @@protoc_insertion_point(field_release:InfoField.type)
   clear_has_type();
   return type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -742,7 +732,6 @@ void InfoField::clear_vcf_field_class() {
   // @@protoc_insertion_point(field_set_pointer:InfoField.vcf_field_class)
 }
  ::std::string* InfoField::add_vcf_field_class() {
-  // @@protoc_insertion_point(field_add_mutable:InfoField.vcf_field_class)
   return vcf_field_class_.Add();
 }
  void InfoField::add_vcf_field_class(const ::std::string& value) {
@@ -808,7 +797,6 @@ void InfoField::clear_length() {
   return length_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* InfoField::release_length() {
-  // @@protoc_insertion_point(field_release:InfoField.length)
   clear_has_length();
   return length_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -826,11 +814,11 @@ void InfoField::clear_length() {
 
 // ===================================================================
 
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
+#ifndef _MSC_VER
 const int Chromosome::kNameFieldNumber;
 const int Chromosome::kLengthFieldNumber;
 const int Chromosome::kTiledbColumnOffsetFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+#endif  // !_MSC_VER
 
 Chromosome::Chromosome()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
@@ -895,17 +883,8 @@ Chromosome* Chromosome::New(::google::protobuf::Arena* arena) const {
 }
 
 void Chromosome::Clear() {
-// @@protoc_insertion_point(message_clear_start:Chromosome)
-#if defined(__clang__)
-#define ZR_HELPER_(f) \
-  _Pragma("clang diagnostic push") \
-  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
-  __builtin_offsetof(Chromosome, f) \
-  _Pragma("clang diagnostic pop")
-#else
 #define ZR_HELPER_(f) reinterpret_cast<char*>(\
   &reinterpret_cast<Chromosome*>(16)->f)
-#endif
 
 #define ZR_(first, last) do {\
   ::memset(&first, 0,\
@@ -930,7 +909,7 @@ void Chromosome::Clear() {
 
 bool Chromosome::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:Chromosome)
   for (;;) {
@@ -1036,9 +1015,8 @@ void Chromosome::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:Chromosome)
 }
 
-::google::protobuf::uint8* Chromosome::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+::google::protobuf::uint8* Chromosome::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:Chromosome)
   // required string name = 1;
   if (has_name()) {
@@ -1070,7 +1048,6 @@ void Chromosome::SerializeWithCachedSizes(
 }
 
 int Chromosome::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:Chromosome)
   int total_size = 0;
 
   if (has_name()) {
@@ -1097,7 +1074,6 @@ int Chromosome::RequiredFieldsByteSizeFallback() const {
   return total_size;
 }
 int Chromosome::ByteSize() const {
-// @@protoc_insertion_point(message_byte_size_start:Chromosome)
   int total_size = 0;
 
   if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
@@ -1131,27 +1107,19 @@ int Chromosome::ByteSize() const {
 }
 
 void Chromosome::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:Chromosome)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const Chromosome* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const Chromosome>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Chromosome)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:Chromosome)
     MergeFrom(*source);
   }
 }
 
 void Chromosome::MergeFrom(const Chromosome& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Chromosome)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_name()) {
       set_has_name();
@@ -1170,14 +1138,12 @@ void Chromosome::MergeFrom(const Chromosome& from) {
 }
 
 void Chromosome::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:Chromosome)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void Chromosome::CopyFrom(const Chromosome& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Chromosome)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1253,7 +1219,6 @@ void Chromosome::clear_name() {
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* Chromosome::release_name() {
-  // @@protoc_insertion_point(field_release:Chromosome.name)
   clear_has_name();
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1319,10 +1284,10 @@ void Chromosome::clear_tiledb_column_offset() {
 
 // ===================================================================
 
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
+#ifndef _MSC_VER
 const int VidMappingPB::kInfofieldsFieldNumber;
 const int VidMappingPB::kChromosomesFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+#endif  // !_MSC_VER
 
 VidMappingPB::VidMappingPB()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
@@ -1382,7 +1347,6 @@ VidMappingPB* VidMappingPB::New(::google::protobuf::Arena* arena) const {
 }
 
 void VidMappingPB::Clear() {
-// @@protoc_insertion_point(message_clear_start:VidMappingPB)
   infofields_.Clear();
   chromosomes_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -1393,7 +1357,7 @@ void VidMappingPB::Clear() {
 
 bool VidMappingPB::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:VidMappingPB)
   for (;;) {
@@ -1477,22 +1441,21 @@ void VidMappingPB::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:VidMappingPB)
 }
 
-::google::protobuf::uint8* VidMappingPB::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+::google::protobuf::uint8* VidMappingPB::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:VidMappingPB)
   // repeated .InfoField infofields = 1;
   for (unsigned int i = 0, n = this->infofields_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageNoVirtualToArray(
-        1, this->infofields(i), false, target);
+      WriteMessageNoVirtualToArray(
+        1, this->infofields(i), target);
   }
 
   // repeated .Chromosome chromosomes = 2;
   for (unsigned int i = 0, n = this->chromosomes_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageNoVirtualToArray(
-        2, this->chromosomes(i), false, target);
+      WriteMessageNoVirtualToArray(
+        2, this->chromosomes(i), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1504,7 +1467,6 @@ void VidMappingPB::SerializeWithCachedSizes(
 }
 
 int VidMappingPB::ByteSize() const {
-// @@protoc_insertion_point(message_byte_size_start:VidMappingPB)
   int total_size = 0;
 
   // repeated .InfoField infofields = 1;
@@ -1535,27 +1497,19 @@ int VidMappingPB::ByteSize() const {
 }
 
 void VidMappingPB::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:VidMappingPB)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const VidMappingPB* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const VidMappingPB>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:VidMappingPB)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:VidMappingPB)
     MergeFrom(*source);
   }
 }
 
 void VidMappingPB::MergeFrom(const VidMappingPB& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:VidMappingPB)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) {
-    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
-  }
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   infofields_.MergeFrom(from.infofields_);
   chromosomes_.MergeFrom(from.chromosomes_);
   if (from._internal_metadata_.have_unknown_fields()) {
@@ -1564,14 +1518,12 @@ void VidMappingPB::MergeFrom(const VidMappingPB& from) {
 }
 
 void VidMappingPB::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:VidMappingPB)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void VidMappingPB::CopyFrom(const VidMappingPB& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:VidMappingPB)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
