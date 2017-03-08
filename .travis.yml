@@ -13,9 +13,9 @@ install:
     - sudo apt-get update -q
     - sudo apt-get install g++-4.9 -y
     - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.9 60
-    - wget https://github.com/google/protobuf/archive/3.0.x.zip -O protobuf-3.0.x.zip
-    - unzip protobuf-3.0.x.zip
-    - pushd protobuf-3.0.x && ./autogen.sh && ./configure --prefix=/usr && make -j4 && sudo make install -j4 && popd
+    - wget https://github.com/Intel-HLS/GenomicsDB/releases/download/0.4.0/protobuf-v3.0.0-beta-1-trusty.tar.gz
+    - tar xzf protobuf-v3.0.0-beta-1-trusty.tar.gz
+    - export PROTOBUF_LIBRARY=$TRAVIS_BUILD_DIR/protobuf-v3.0.0-beta-1
     - sudo apt-get -y install openjdk-8-jdk icedtea-plugin
     - jdk_switcher use openjdk8
     - echo $JAVA_HOME
@@ -41,7 +41,7 @@ script:
     - make BUILD=debug-coverage OPENMP=1 BUILD_JAVA=1 LIBCSV_DIR=dependencies/libcsv JNI_FLAGS="-I$JAVA_HOME/include/ -I$JAVA_HOME/include/linux/" -j 4
     - javac -version && which javac && javac -d tests example/java/TestGenomicsDB.java
     - javac -d tests example/java/TestBufferStreamGenomicsDBImporter.java
-    - java -version && which java && python tests/run.py
+    - java -version && which java && mvn test && python tests/run.py
 
 after_success:
     - lcov --list tests/coverage.info # debug before upload
