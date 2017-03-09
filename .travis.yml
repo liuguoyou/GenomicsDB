@@ -13,8 +13,8 @@ install:
     - sudo apt-get update -q
     - sudo apt-get install g++-4.9 -y
     - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.9 60
-    - wget https://github.com/Intel-HLS/GenomicsDB/releases/download/0.4.0/protobuf-v3.0.0-beta-1-trusty.tar.gz -O protobuf-v3.0.0-beta-1-trusty.tar.gz
-    - tar xzf protobuf-v3.0.0-beta-1-trusty.tar.gz  && sudo rsync -a protobuf-v3.0.0-beta-1-trusty/ /usr/
+    - wget https://github.com/Intel-HLS/GenomicsDB/releases/download/0.4.0/protobuf-v3.0.0-beta-1-trusty.tar.gz -O $TRAVIS_BUILD_DIR/protobuf-v3.0.0-beta-1-trusty.tar.gz
+    - tar xzf $TRAVIS_BUILD_DIR/protobuf-v3.0.0-beta-1-trusty.tar.gz  && sudo rsync -a $TRAVIS_BUILD_DIR/protobuf-v3.0.0-beta-1-trusty/ /usr/
     - sudo apt-get -y install openjdk-8-jdk icedtea-plugin
     - jdk_switcher use openjdk8
     - echo $JAVA_HOME
@@ -26,8 +26,6 @@ install:
     - wget -O dependencies/libcsv.tar.gz http://downloads.sourceforge.net/project/libcsv/libcsv/libcsv-3.0.3/libcsv-3.0.3.tar.gz
     - mkdir -p dependencies/libcsv && tar xzf dependencies/libcsv.tar.gz  -C dependencies/libcsv --strip-components=1 && cd dependencies/libcsv && ./configure && make
     - cd $TRAVIS_BUILD_DIR
-    #Download htsjdk jar
-    #Download simple json jar for JSON handling in Java
     # install lcov to coveralls conversion + upload tool
     - gem install coveralls-lcov
 
